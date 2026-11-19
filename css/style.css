@@ -3,7 +3,6 @@ body {
     margin: 0;
     padding: 0;
     font-family: sans-serif;
-    /* Ide tedd be a saját erdős háttérképed útvonalát */
     background: url('..//kepek/woods_hatterkep.png') no-repeat center center fixed; 
     background-size: cover;
     min-height: 100vh;
@@ -14,38 +13,52 @@ body {
 /* ============================
    HEADER ÉS NAVBAR
    ============================ */
-
 .header {
     display: flex;
     align-items: center;
     padding: 20px 30px;
-    gap: 30px; /* Nagyobb távolság a logó és a menü között */
+    gap: 30px; 
 }
-
+.shadow-box{
+    width: 310px;
+    height: 500px;
+    background-color: black;
+    opacity: 0.6;
+    margin-left:100px;
+    margin-top:50px;
+    transform: rotate(10deg);
+    display: flex;
+}
+.shadow-box p{
+    color:white;
+    font-size: 30px;
+}
+.write-box{
+ display: grid;
+ grid-template-columns: repeat(3, 1fr);
+ grid-gap: 8rem;   
+}
 .logo {
     font-weight: bold;
     font-size: 1.5rem;
-    color: #fff; /* Fehér logó, hogy jobban mutasson a sötét háttéren */
-    text-shadow: 2px 2px 5px rgba(0,0,0,0.8); /* Kis árnyék a logónak is */
+    color: #fff; 
+    text-shadow: 2px 2px 5px rgba(0,0,0,0.8); 
 }
 
-/* Az elkülönített, díszes és zöld navbar */
 .navbar {
     display: flex;
     gap: 15px;
-    background: linear-gradient(145deg, #1e4620, #2a5f2b); /* Elegáns zöld színátmenet */
+    background: linear-gradient(145deg, #1e4620, #2a5f2b); 
     padding: 10px 25px;
-    border-radius: 40px; /* Szép kerekített forma */
-    /* Erős külső árnyék és egy kis belső világosodás (térhatás) */
+    border-radius: 40px; 
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.7), inset 0 2px 3px rgba(255, 255, 255, 0.2); 
-    border: 1px solid #3d8a40; /* Vékony, világosabb zöld keret */
+    border: 1px solid #3d8a40; 
 }
 
-/* A menüpontok (gombok) stílusa */
 .navbar a {
     text-decoration: none;
-    color: #e8f5e9; /* Nagyon világos mentazöld szöveg */
-    background: rgba(0, 0, 0, 0.25); /* Sötétített alap a gomboknak */
+    color: #e8f5e9; 
+    background: rgba(0, 0, 0, 0.25); 
     padding: 8px 18px;
     border-radius: 25px;
     font-size: 0.85rem;
@@ -53,22 +66,21 @@ body {
     text-transform: uppercase;
     letter-spacing: 1px;
     border: 1px solid transparent;
-    transition: all 0.3s ease; /* Finom animáció */
+    transition: all 0.3s ease;
 }
 
-/* Hover (amikor ráviszed az egeret) */
 .navbar a:hover {
-    background: #4caf50; /* Élénkzöldre vált */
+    background: #4caf50; 
     color: #fff;
     border: 1px solid #a5d6a7;
-    box-shadow: 0 0 15px rgba(76, 175, 80, 0.8); /* Fénylő zöld árnyék (glow) */
-    transform: translateY(-2px); /* Picit megemelkedik a gomb */
+    box-shadow: 0 0 15px rgba(76, 175, 80, 0.8); 
+    transform: translateY(-2px); 
 }
 /* ============================
    KÖZÉPSŐ TARTALOM (kártyák)
    ============================ */
 .content {
-    flex: 1; /* Kitölti a maradék helyet a header és footer között */
+    flex: 1; 
     display: flex;
     justify-content: center;
     align-items: center;
@@ -79,11 +91,10 @@ body {
 .dark-card {
     width: 250px;
     height: 350px;
-    background-color: rgba(30, 30, 30, 0.75); /* Félig átlátszó sötét doboz */
+    background-color: rgba(30, 30, 30, 0.75); 
     box-shadow: 0 4px 15px rgba(0,0,0,0.5);
 }
 
-/* A képen látható dőlések imitálása */
 .rotated-left {
     transform: rotate(10deg);
 }
@@ -93,11 +104,59 @@ body {
 }
 
 
+
+.opal{
+    opacity: 1;
+    display:flex;
+    position:absolute;
+    z-index: 3;
+}
+/* Biztosítjuk, hogy a szülőelemhez képest pozicionálódjanak a képek */
+.dark-card {
+    position: relative;
+}
+
+.opal1 {
+    margin-left: 100px;
+    position: absolute;
+    z-index: 1;
+    opacity: 1;
+    /* Lassú, 0.8 másodperces átmenet */
+    transition: opacity 0.8s ease-in-out, transform 0.8s ease-in-out;
+}
+
+.opal2 {
+    z-index: 2;
+    position: absolute;
+    top: -80px;
+    right: -22px;
+    opacity: 0;
+    pointer-events: none;
+    transform: scale(0.6); 
+    transition: opacity 0.8s ease-in-out, transform 0.8s ease-in-out;
+}
+
+
+.dark-card:hover .opal1 {
+    opacity: 0;
+    transform: translate(30px, -40px) scale(1.3);
+}
+
+.dark-card:hover .opal2 {
+    opacity: 1;
+    transform: scale(1);
+}
+.rotated-left img{
+    margin-top: 200px;
+}
+.rotated-right img{
+    margin-top: 200px;
+}
 /* ============================
    FOOTER
    ============================ */
 .footer {
-    background-color: rgba(0, 0, 0, 0.6); /* Félig átlátszó fekete sáv */
+    background-color: rgba(0, 0, 0, 0.6); 
     color: #fff;
     text-align: center;
     padding: 10px 0;
