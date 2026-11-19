@@ -1,8 +1,106 @@
-body{
-    background-color: rgb(0, 54, 0);
+/* Alapbeállítások és háttér */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+    /* Ide tedd be a saját erdős háttérképed útvonalát */
+    background: url('..//kepek/woods_hatterkep.png') no-repeat center center fixed; 
+    background-size: cover;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
-.indexnav button{
-    border: 0px;
-    outline: none;
-    border: none;
+
+/* ============================
+   HEADER ÉS NAVBAR
+   ============================ */
+
+.header {
+    display: flex;
+    align-items: center;
+    padding: 20px 30px;
+    gap: 30px; /* Nagyobb távolság a logó és a menü között */
+}
+
+.logo {
+    font-weight: bold;
+    font-size: 1.5rem;
+    color: #fff; /* Fehér logó, hogy jobban mutasson a sötét háttéren */
+    text-shadow: 2px 2px 5px rgba(0,0,0,0.8); /* Kis árnyék a logónak is */
+}
+
+/* Az elkülönített, díszes és zöld navbar */
+.navbar {
+    display: flex;
+    gap: 15px;
+    background: linear-gradient(145deg, #1e4620, #2a5f2b); /* Elegáns zöld színátmenet */
+    padding: 10px 25px;
+    border-radius: 40px; /* Szép kerekített forma */
+    /* Erős külső árnyék és egy kis belső világosodás (térhatás) */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.7), inset 0 2px 3px rgba(255, 255, 255, 0.2); 
+    border: 1px solid #3d8a40; /* Vékony, világosabb zöld keret */
+}
+
+/* A menüpontok (gombok) stílusa */
+.navbar a {
+    text-decoration: none;
+    color: #e8f5e9; /* Nagyon világos mentazöld szöveg */
+    background: rgba(0, 0, 0, 0.25); /* Sötétített alap a gomboknak */
+    padding: 8px 18px;
+    border-radius: 25px;
+    font-size: 0.85rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border: 1px solid transparent;
+    transition: all 0.3s ease; /* Finom animáció */
+}
+
+/* Hover (amikor ráviszed az egeret) */
+.navbar a:hover {
+    background: #4caf50; /* Élénkzöldre vált */
+    color: #fff;
+    border: 1px solid #a5d6a7;
+    box-shadow: 0 0 15px rgba(76, 175, 80, 0.8); /* Fénylő zöld árnyék (glow) */
+    transform: translateY(-2px); /* Picit megemelkedik a gomb */
+}
+/* ============================
+   KÖZÉPSŐ TARTALOM (kártyák)
+   ============================ */
+.content {
+    flex: 1; /* Kitölti a maradék helyet a header és footer között */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 80px;
+    padding: 50px;
+}
+
+.dark-card {
+    width: 250px;
+    height: 350px;
+    background-color: rgba(30, 30, 30, 0.75); /* Félig átlátszó sötét doboz */
+    box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+}
+
+/* A képen látható dőlések imitálása */
+.rotated-left {
+    transform: rotate(10deg);
+}
+
+.rotated-right {
+    transform: rotate(10deg);
+}
+
+
+/* ============================
+   FOOTER
+   ============================ */
+.footer {
+    background-color: rgba(0, 0, 0, 0.6); /* Félig átlátszó fekete sáv */
+    color: #fff;
+    text-align: center;
+    padding: 10px 0;
+    font-size: 0.85rem;
+    width: 100%;
 }
